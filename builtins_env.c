@@ -51,7 +51,7 @@ int builtin_env(data_of_program *data)
  * @data: struct containing the program's data
  * Return: zero on success, or a different number if specified in the arguments
  */
-int builtin_set_env(data_of_program *data)
+int set_env(data_of_program *data)
 {
 	
 	if (data->tokens[1] == NULL || data->tokens[2] == NULL)

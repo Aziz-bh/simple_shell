@@ -86,13 +86,13 @@ int set_work_directory(data_of_program *data, char *new_dir);
 
 int builtin_help(data_of_program *data);
 
-int builtin_alias(data_of_program *data);
+int alias(data_of_program *data);
 
 
 
 int builtin_env(data_of_program *data);
 
-int builtin_set_env(data_of_program *data);
+int set_env(data_of_program *data);
 
 int builtin_unset_env(data_of_program *data);
 
@@ -106,7 +106,7 @@ int set_alias(char *alias_string, data_of_program *data);
 char *env_get_key(char *name, data_of_program *data);
 
 /* Overwrite the value of the environment variable */
-int env_set_key(char *key, char *value, data_of_program *data);
+int key(char *key, char *value, data_of_program *data);
 
 /* Remove a key from the environment */
 int env_remove_key(char *key, data_of_program *data);
