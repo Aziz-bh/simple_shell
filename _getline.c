@@ -43,6 +43,7 @@ int _getline(data_of_program *data)
 	data->input_line = array_commands[0];
 	for (i = 0; array_commands[i]; i++)
 	{
+		
 		array_commands[i] = array_commands[i + 1];
 		array_operators[i] = array_operators[i + 1];
 	}
@@ -52,14 +53,13 @@ int _getline(data_of_program *data)
 
 
 /**
- * check_logic_operators - examines and separates && and || operators
- * @commands_array: array containing the commands.
- * @index: index in the commands_array to be analyzed.
- * @operators_array: array of logical operators corresponding to previous commands.
- *
- * Returns: index of the last command in the commands_array.
- */
-
+* check_logic_ops - examines and separates && and || operators
+* @array_commands: array of the commands.
+* @i: index in the array_commands to be checked
+* @array_operators: array of logical operators corresponding to previous commands.
+*
+* Return: index of the last command in the commands_array.
+*/
 int check_logic_ops(char *array_commands[], int i, char array_operators[])
 {
 	char *temp = NULL;
