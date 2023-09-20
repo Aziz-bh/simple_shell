@@ -13,11 +13,8 @@
 #include <signal.h> /* for signal management */
 #include <fcntl.h> /* for open files*/
 
-/************* example **************/
-
 #include "example.h" /* for msg help and prompt */
 
-/************* STRUCTURES **************/
 
 /**
  * struct info- struct for the program's data
@@ -54,126 +51,58 @@ typedef struct builtins
 } builtins;
 
 
-/************* MAIN FUNCTIONS *************/
 
 
-/*========  shell.c  ========*/
-
-/* Inicialize the struct with the info of the program */
-void inicialize_data(data_of_program *data, int arc, char *argv[], char **env);
-
-/* Makes the infinite loop that shows the prompt*/
-void sisifo(char *prompt, data_of_program *data);
-
-/* Print the prompt in a new line */
-void handle_ctrl_c(int opr UNUSED);
 
 
-/*========  _getline.c  ========*/
-
-/* Read one line of the standar input*/
-int _getline(data_of_program *data);
-
-/* split the each line for the logical operators if it exist */
-int check_logic_ops(char *array_commands[], int i, char array_operators[]);
-
-
-/*======== expansions.c ========*/
-
-/* expand variables */
-void expand_variables(data_of_program *data);
-
-/* expand aliases */
-void expand_alias(data_of_program *data);
-
-/* append the string to the end of the buffer*/
-int buffer_add(char *buffer, char *str_to_add);
-
-
-/*======== str_tok.c ========*/
-
-/* Separate the string in tokens using a designed delimiter */
 void tokenize(data_of_program *data);
 
-/* Creates a pointer to a part of a string */
 char *_strtok(char *line, char *delim);
 
-
-/*======== execute.c ========*/
-
-/* Execute a command with its entire path */
 int execute(data_of_program *data);
 
-
-/*======== builtins_list.c ========*/
-
-/* If match a builtin, executes it */
 int builtins_list(data_of_program *data);
 
-
-/*======== find_in_path.c ========*/
-
-/* Creates an array of the path directories */
 char **tokenize_path(data_of_program *data);
 
-/* Search for program in path */
 int find_program(data_of_program *data);
 
 
-/************** HELPERS FOR MEMORY MANAGEMENT **************/
-
-
-/*======== helpers_free.c ========*/
-
-/* Frees the memory for directories */
 void free_array_of_pointers(char **directories);
 
-/* Free the fields needed each loop */
 void free_recurrent_data(data_of_program *data);
 
-/* Free all field of the data */
 void free_all_data(data_of_program *data);
 
 
-/************** BUILTINS **************/
 
-
-/*======== builtins_more.c ========*/
-
-/* Close the shell */
 int builtin_exit(data_of_program *data);
 
-/* Change the current directory */
+
 int builtin_cd(data_of_program *data);
 
-/* set the work directory */
+
 int set_work_directory(data_of_program *data, char *new_dir);
 
-/* show help information */
 int builtin_help(data_of_program *data);
 
-/* set, unset and show alias */
 int builtin_alias(data_of_program *data);
 
 
-/*======== builtins_env.c ========*/
 
-/* Shows the environment where the shell runs */
 int builtin_env(data_of_program *data);
 
-/* create or override a variable of environment */
 int builtin_set_env(data_of_program *data);
 
-/* delete a variable of environment */
 int builtin_unset_env(data_of_program *data);
 
 
-/************** HELPERS FOR ENVIRONMENT VARIABLES MANAGEMENT **************/
 
+int print_alias(data_of_program *data, char *alias);
 
-/*======== env_management.c ========*/
+char *get_alias(data_of_program *data, char *alias);
 
-/* Gets the value of an environment variable */
+int set_alias(char *alias_string, data_of_program *data);
 char *env_get_key(char *name, data_of_program *data);
 
 /* Overwrite the value of the environment variable */
@@ -234,16 +163,22 @@ int _atoi(char *s);
 int count_characters(char *string, char *character);
 
 
-/*======== alias_management.c ========*/
+void inicialize_data(data_of_program *data, int arc, char *argv[], char **env);
 
-/* print the list of alias */
-int print_alias(data_of_program *data, char *alias);
+void sisifo(char *prompt, data_of_program *data);
 
-/* get the alias name */
-char *get_alias(data_of_program *data, char *alias);
+void handle_ctrl_c(int opr UNUSED);
 
-/* set the alias name */
-int set_alias(char *alias_string, data_of_program *data);
+
+int _getline(data_of_program *data);
+
+int check_logic_ops(char *array_commands[], int i, char array_operators[]);
+
+
+void expand_variables(data_of_program *data);
+
+void expand_alias(data_of_program *data);
+int buffer_add(char *buffer, char *str_to_add);
 
 
 #endif /* SHELL_H */
