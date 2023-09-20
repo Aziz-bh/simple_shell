@@ -26,13 +26,13 @@ char *env_get_key(char *key, data_of_program *data)
 }
 
 /**
- * key - overwrites the value of an environment variable or creates it if it does not exist
+ * env_set_key - overwrites the value of an environment variable or creates it if it does not exist
  * @key: name of the variable to set
  * @value: new value
  * @data: struct containing the program's data
  * Return: 1 if the parameters are NULL, 2 if there is an error, or 0 on success
  */
-int key(char *key, char *value, data_of_program *data)
+int env_set_key(char *key, char *value, data_of_program *data)
 {
 	int i, key_length = 0, is_new_key = 1;
 	if (key == NULL || value == NULL || data->env == NULL)
