@@ -52,13 +52,14 @@ int _getline(data_of_program *data)
 
 
 /**
-* check_logic_ops - checks and split for && and || operators
-* @array_commands: array of the commands.
-* @i: index in the array_commands to be checked
-* @array_operators: array of the logical operators for each previous command
-*
-* Return: index of the last command in the array_commands.
-*/
+ * check_logic_operators - examines and separates && and || operators
+ * @commands_array: array containing the commands.
+ * @index: index in the commands_array to be analyzed.
+ * @operators_array: array of logical operators corresponding to previous commands.
+ *
+ * Returns: index of the last command in the commands_array.
+ */
+
 int check_logic_ops(char *array_commands[], int i, char array_operators[])
 {
 	char *temp = NULL;
