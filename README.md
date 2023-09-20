@@ -1,150 +1,160 @@
-## SHELL PROJECT
+# Shell Project
 
 ## Objectives
 
-#### There are three objectives to this assignment:
+### This project has three main objectives:
 
-- To familiarize ourselves with the Linux programming environment.
+- To provide a hands-on experience with the Linux programming environment.
 
-- To learn how processes are created, destroyed, and managed.
+- To explore the concepts of process creation, management, and destruction.
 
-- To gain exposure to the necessary functionality in shells.
+- To gain familiarity with fundamental shell functionalities.
 
 ## Overview
 
-- In this assignment, we implemented a command line interpreter or, as it is more commonly known, a shell. The shell should operate in this basic way: when you type in a command (in response to its prompt), the shell creates a child process that executes the command you entered and then prompts for more user input when it has finished.
+- In this project, we have implemented a command line interpreter, commonly known as a shell. The shell follows this basic workflow: when a user enters a command in response to its prompt, the shell creates a child process to execute the entered command and then waits for more user input when the execution is complete.
 
-- The shells we implemented will be similar to, but simpler than, the one you run every day in Unix. You can find out which shell you are running by typing "echo $SHELL" at a prompt. You may then wish to look at the man pages for 'csh' or the shell you are running (more likely tcsh, or bash, or for those few wacky ones in the crowd, zsh or ksh) to learn more about all of the functionality that can be present. For this project, you do not need to implement too much functionality because its just a simple shell.
+- The shells we've developed are similar to the everyday Unix shell you use. You can identify your current shell by running the command "echo $SHELL" at a prompt. You may consult the manual pages for 'csh' or your shell of choice (probably tcsh, bash, or, for those with unique preferences, zsh or ksh) to explore advanced functionalities. However, for this project, we've focused on creating a simple shell with basic features.
 
 ## Program Specification
 
-## Basic Shell
+### Basic Shell
 
-#### Simple shell 0.1
+#### Simple Shell 0.1
 
-- Write a UNIX command line interpreter.
+- Develop a UNIX command line interpreter.
 
-	- Usage: simple-shell
-	- Your Shell should:
+    - Usage: simple-shell
+    - Your Shell should:
 
-	- Display a prompt and wait for the user to type a command. A command line always ends with a new line.
-	- The prompt is displayed again each time a command has been executed.
-	- The command lines are simple, no semicolons, no pipes, no redirections or any other advanced features.
-	- The command lines are made only of one word. No arguments will be passed to programs.
-	- If an executable cannot be found, print an error message and display the prompt again.
-	- Handle errors.
-	- You have to handle the “end of file” condition (Ctrl+D)
-	- You don’t have to:
-	- use the PATH
-	- implement built-ins
-	- handle special characters : `", ', , \, *, &, #`
-	- be able to move the cursor
-	- handle commands with arguments
+        - Display a prompt and wait for the user to enter a command. Each command line ends with a new line.
+        - Redisplay the prompt after executing each command.
+        - Only handle simple command lines with no semicolons, pipes, redirections, or advanced features.
+        - Process command lines consisting of a single word; no arguments are passed to programs.
+        - Print an error message and display the prompt again if an executable cannot be found.
+        - Handle errors gracefully.
+        - Address the "end of file" condition (Ctrl+D).
+    - You are not required to:
 
-#### Simple shell 0.2
+        - Use the PATH environment variable.
+        - Implement built-in commands.
+        - Handle special characters such as `", ', , \, *, &, #`.
+        - Implement cursor movement.
+        - Process commands with arguments.
 
-- Simple shell 0.1 +
+#### Simple Shell 0.2
 
-	- Handle command lines with arguments
+- Simple Shell 0.1 plus:
 
-#### Simple shell 0.3
+    - Handle command lines with arguments.
 
-- Simple shell 0.2 +
+#### Simple Shell 0.3
 
-	- Handle the PATH
-	- fork must not be called if the command doesn’t exist
+- Simple Shell 0.2 plus:
 
-#### Simple shell 0.4
+    - Manage the PATH environment variable.
+    - Avoid calling fork if the command does not exist.
 
-- Simple shell 0.3 +
+#### Simple Shell 0.4
 
-	- Implement the exit built-in, that exits the shell
-	- Usage: exit
-	- You don’t have to handle any argument to the built-in exit
-####  Simple shell 1.0
+- Simple Shell 0.3 plus:
 
-- Simple shell 0.4 +
+    - Implement the exit built-in command for exiting the shell.
+    - Usage: exit
+    - You do not need to handle any arguments for the built-in exit.
 
-	- Implement the env built-in, that prints the current environment
-#### Simple shell 0.1.1
+#### Simple Shell 1.0
 
-- Simple shell 0.1 +
+- Simple Shell 0.4 plus:
 
-	- Write your own getline function
-	- Use a buffer to read many chars at once and call the least possible the read system call
-	- You will need to use static variables
-	- You are not allowed to use getline
-- You don’t have to:
+    - Implement the env built-in command to print the current environment.
 
-	- be able to move the cursor
-#### Simple shell 0.2.1
+#### Simple Shell 0.1.1
 
-- Simple shell 0.2 +
+- Simple Shell 0.1 plus:
 
-	- You are not allowed to use strtok
-#### Simple shell 0.4.1
+    - Implement your own getline function.
+    - Use a buffer to read multiple characters at once, minimizing read system calls.
+    - Utilize static variables.
+    - You are prohibited from using getline.
+    - Cursor movement is not required.
 
-- Simple shell 0.4 +
+#### Simple Shell 0.2.1
 
-	- handle arguments for the built-in exit
-	- Usage: exit status, where status is an integer used to exit the shell
-#### `setenv, unsetenv`
+- Simple Shell 0.2 plus:
 
-- Simple shell 1.0 +
+    - You are prohibited from using strtok.
 
-- Implement the setenv and unsetenv builtin commands
+#### Simple Shell 0.4.1
 
-`setenv`
-	- Initialize a new environment variable, or modify an existing one
-	- Command syntax: `setenv` VARIABLE VALUE
-	- Should print something on stderr on failure
-`unsetenv`
-	- Remove an environment variable
-	- Command syntax: `unsetenv` VARIABLE
-	- Should print something on stderr on failure
-#### `cd`
-- Simple shell 1.0 +
+- Simple Shell 0.4 plus:
 
-	- Implement the builtin command `cd`:
+    - Handle arguments for the built-in exit command.
+    - Usage: exit status, where status is an integer used to exit the shell.
 
-	- Changes the current directory of the process.
-	- Command syntax: `cd [DIRECTORY]`
-	- If no argument is given to cd the command must be interpreted like `cd $HOME`
-	- You have to handle the command `cd -`
-	- You have to update the environment variable `PWD` when you change directory
-	`man chdir`, `man getcwd`
-#### Handler of this separator `;`
+#### Built-in Commands: setenv and unsetenv
 
-- Simple shell 1.0 +
+- Simple Shell 1.0 plus:
 
-	- Handle the commands separator `;`
-#### `&& and ||`
+- Implement the setenv and unsetenv built-in commands.
 
-- Simple shell 1.0 +
+##### setenv
 
-	- Handle the` &&` and `||` shell logical operators
-#### `alias`
+- Initialize a new environment variable or modify an existing one.
+- Command syntax: setenv VARIABLE VALUE
+- Provide appropriate error messages on failure.
 
-- Simple shell 1.0 +
+##### unsetenv
 
-	- Implement the alias builtin command
-	- Usage: `alias [name[='value'] ...]`
-	- alias: Prints a list of all aliases, one per line, in the form name='value'
-	- alias name [name2 ...]: Prints the aliases name, name2, etc 1 per line, in the form name='value'
-	- alias name='value' [...]: Defines an alias for each name whose value is given. If name is already an alias, replaces its value with value
-#### `Comments`
+- Remove an environment variable.
+- Command syntax: unsetenv VARIABLE
+- Provide appropriate error messages on failure.
 
-- Simple shell 1.0 +
+#### Built-in Command: cd
 
-	- Handle comments (`#`)
-#### File as input
+- Simple Shell 1.0 plus:
 
-- Simple shell 1.0 +
+- Implement the built-in command cd, which changes the current directory of the process.
+- Command syntax: cd [DIRECTORY]
+- If no argument is given to cd, interpret it as `cd $HOME`.
+- Handle the `cd -` command.
+- Update the environment variable PWD when changing directories.
+- Reference: `man chdir`, `man getcwd`
 
-	- Usage: simple_shell [filename]
-	- Your shell can take a file as a command line argument
-	- The file contains all the commands that your shell should run before exiting
-	- The file should contain one command per line
-	- In this mode, the shell should not print a prompt and should not read from stdin
+#### Command Separator: ;
 
----
+- Simple Shell 1.0 plus:
+
+- Handle the command separator `;`.
+
+#### Logical Operators: && and ||
+
+- Simple Shell 1.0 plus:
+
+- Handle the `&&` and `||` shell logical operators.
+
+#### Built-in Command: alias
+
+- Simple Shell 1.0 plus:
+
+- Implement the alias built-in command.
+- Usage: alias [name[='value'] ...]
+- alias: Print a list of all aliases, one per line, in the form name='value'.
+- alias name [name2 ...]: Print the aliases name, name2, etc., one per line, in the form name='value'.
+- alias name='value' [...]: Define an alias for each name with the given value. Replace the value if name is already an alias.
+
+#### Comments
+
+- Simple Shell 1.0 plus:
+
+- Handle comments (`#`).
+
+#### File as Input
+
+- Simple Shell 1.0 plus:
+
+- Usage: simple_shell [filename]
+- Your shell can accept a file as a command line argument.
+- The file contains all the commands that your shell should run before exiting.
+- Each line in the file represents one command.
+- In this mode, the shell should not print a prompt or read from stdin.

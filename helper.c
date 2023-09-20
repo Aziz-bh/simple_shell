@@ -6,7 +6,7 @@ char *get_env_value(char *beginning, int len);
 void variable_replacement(char **args, int *exe_ret);
 
 /**
- * free_args - Frees up memory taken by args.
+ * Frees up memory taken by arguments.
  * @args: A null-terminated double pointer containing commands/arguments.
  * @front: A double pointer to the beginning of args.
  */
@@ -21,11 +21,11 @@ void free_args(char **args, char **front)
 }
 
 /**
- * get_pid - Gets the current process ID.
+ * Gets the current process ID.
  * Description: Opens the stat file, a space-delimited file containing
  *              information about the current process. The PID is the
  *              first word in the file. The function reads the PID into
- *              a buffer and replace the space at the end with a \0 byte.
+ *              a buffer and replaces the space at the end with a \0 byte.
  *
  * Return: The current process ID or NULL on failure.
  */
@@ -38,7 +38,7 @@ char *get_pid(void)
 	file = open("/proc/self/stat", O_RDONLY);
 	if (file == -1)
 	{
-		perror("Cant read file");
+		perror("Could not read file");
 		return (NULL);
 	}
 	buffer = malloc(120);
@@ -57,7 +57,7 @@ char *get_pid(void)
 }
 
 /**
- * get_env_value - Gets the value corresponding to an environmental variable.
+ * Gets the value corresponding to an environmental variable.
  * @beginning: The environmental variable to search for.
  * @len: The length of the environmental variable to search for.
  *
@@ -94,12 +94,12 @@ char *get_env_value(char *beginning, int len)
 }
 
 /**
- * variable_replacement - Handles variable replacement.
+ * Handles variable replacement.
  * @line: A double pointer containing the command and arguments.
  * @exe_ret: A pointer to the return value of the last executed command.
  *
  * Description: Replaces $$ with the current PID, $? with the return value
- *              of the last executed program, and envrionmental variables
+ *              of the last executed program, and environmental variables
  *              preceded by $ with their corresponding value.
  */
 void variable_replacement(char **line, int *exe_ret)
@@ -125,7 +125,7 @@ void variable_replacement(char **line, int *exe_ret)
 			}
 			else if (old_line[j + 1])
 			{
-				/* extract the variable name to search for */
+				/* Extract the variable name to search for */
 				for (k = j + 1; old_line[k] &&
 						old_line[k] != '$' &&
 						old_line[k] != ' '; k++)
