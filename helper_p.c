@@ -43,9 +43,9 @@ int _print_error(int errorcode, data_of_program *data)
 		_printe(": ");
 		_printe(data->tokens[0]);
 		if (errorcode == 2)
-			_printe(": Illegal number: ");
+			_printe(": this number is Illegal:");
 		else
-			_printe(": can't cd to ");
+			_printe(": impossible to dc to ");
 		_printe(data->tokens[1]);
 		_printe("\n");
 	}
@@ -56,7 +56,7 @@ int _print_error(int errorcode, data_of_program *data)
 		_printe(n_as_string);
 		_printe(": ");
 		_printe(data->command_name);
-		_printe(": not found\n");
+		_printe(": doesn't exist\n");
 	}
 	else if (errorcode == 126)
 	{
