@@ -6,7 +6,7 @@
  * @alias: name of the alias to be printed
  * Return: zero on success, or a different number if specified in the arguments
  */
-int print_alias(data_of_program *data, char *alias)
+int aliasprint(data_of_program *data, char *alias)
 {
 	int i, j, alias_length;
 	char buffer[250] = {'\0'};

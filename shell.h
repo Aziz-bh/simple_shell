@@ -98,7 +98,7 @@ int builtin_unset_env(data_of_program *data);
 
 
 
-int print_alias(data_of_program *data, char *alias);
+int aliasprint(data_of_program *data, char *alias);
 
 char *get_alias(data_of_program *data, char *alias);
 

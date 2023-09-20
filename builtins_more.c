@@ -144,14 +144,14 @@ int builtin_alias(data_of_program *data)
 	int i = 0;
 
 	if (data->tokens[1] == NULL)
-		return (print_alias(data, NULL));
+		return (aliasprint(data, NULL));
 
 	while (data->tokens[++i])
 	{
 		if (count_characters(data->tokens[i], "="))
 			set_alias(data->tokens[i], data);
 		else
-			print_alias(data, data->tokens[i]);
+			aliasprint(data, data->tokens[i]);
 	}
 
 	return (0);
