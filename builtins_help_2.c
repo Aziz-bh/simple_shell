@@ -6,7 +6,7 @@ void help_unsetenv(void);
 void help_history(void);
 
 /**
- * Displays information on the shellby builtin command 'env'.
+ * help_env - Displays information on the shellby builtin command 'env'.
  */
 void help_env(void)
 {
@@ -16,7 +16,7 @@ void help_env(void)
 }
 
 /**
- * Displays information on the shellby builtin command 'setenv'.
+ * help_setenv - Displays information on the shellby builtin command 'setenv'.
  */
 void help_setenv(void)
 {
@@ -30,7 +30,8 @@ void help_setenv(void)
 }
 
 /**
- * Displays information on the shellby builtin command 'unsetenv'.
+ * help_unsetenv - Displays information on the shellby builtin command
+ * 'unsetenv'.
  */
 void help_unsetenv(void)
 {

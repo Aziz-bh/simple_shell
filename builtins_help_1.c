@@ -7,27 +7,29 @@ void help_exit(void);
 void help_help(void);
 
 /**
- * Displays all possible builtin shellby commands.
+ * help_all - Displays all possible builtin shellby commands.
  */
 void help_all(void)
-void help_all(void) {
-    const char *msg =
-        "Shellby\n"
-        "These shell commands are defined internally.\n"
-        "Type 'help' to see this list.\n"
-        "Type 'help name' to find out more about the function 'name'.\n\n"
-        "  alias     \talias [NAME[='VALUE'] ...]\n"
-        "  cd        \tcd [DIRECTORY]\n"
-        "  exit      \texit [STATUS]\n"
-        "  env       \tenv\n"
-        "  setenv    \tsetenv [VARIABLE] [VALUE]\n"
-        "  unsetenv  \tunsetenv [VARIABLE]\n";
+{
+	char *msg = "Shellby\nThese shell commands are defined internally.\n";
 
-    write(STDOUT_FILENO, msg, strlen(msg));
+	write(STDOUT_FILENO, msg, _strlen(msg));
+	msg = "Type 'help' to see this list.\nType 'help name' to find ";
+	write(STDOUT_FILENO, msg, _strlen(msg));
+	msg = "out more about the function 'name'.\n\n  alias   \t";
+	write(STDOUT_FILENO, msg, _strlen(msg));
+	msg = "alias [NAME[='VALUE'] ...]\n  cd    \tcd   ";
+	write(STDOUT_FILENO, msg, _strlen(msg));
+	msg = "[DIRECTORY]\n  exit    \texit [STATUS]\n  env     \tenv";
+	write(STDOUT_FILENO, msg, _strlen(msg));
+	msg = "\n  setenv  \tsetenv [VARIABLE] [VALUE]\n  unsetenv\t";
+	write(STDOUT_FILENO, msg, _strlen(msg));
+	msg = "unsetenv [VARIABLE]\n";
+	write(STDOUT_FILENO, msg, _strlen(msg));
 }
 
 /**
- * Displays information on the shellby builtin command 'alias'.
+ * help_alias - Displays information on the shellby builtin command 'alias'.
  */
 void help_alias(void)
 {
@@ -49,7 +51,7 @@ void help_alias(void)
 }
 
 /**
- * Displays information on the shellby builtin command 'cd'.
+ * help_cd - Displays information on the shellby builtin command 'cd'.
  */
 void help_cd(void)
 {
@@ -69,7 +71,7 @@ void help_cd(void)
 }
 
 /**
- * Displays information on the shellby builtin command 'exit'.
+ * help_exit - Displays information on the shellby builtin command 'exit'.
  */
 void help_exit(void)
 {
@@ -85,7 +87,7 @@ void help_exit(void)
 }
 
 /**
- * Displays information on the shellby builtin command 'help'.
+ * help_help - Displays information on the shellby builtin command 'help'.
  */
 void help_help(void)
 {
