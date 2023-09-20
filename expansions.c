@@ -1,16 +1,14 @@
 #include "shell.h"
 
 /**
- * expand_variables - expand variables
- * @data: a pointer to a struct of the program's data
- *
+ * expand_variables - expands variables
+ * @data: a pointer to a struct containing the program's data
  * Return: nothing, but sets errno.
  */
 void expand_variables(data_of_program *data)
 {
 	int i, j;
 	char line[BUFFER_SIZE] = {0}, expansion[BUFFER_SIZE] = {'\0'}, *temp;
-
 	if (data->input_line == NULL)
 		return;
 	buffer_add(line, data->input_line);
@@ -51,19 +49,16 @@ void expand_variables(data_of_program *data)
 }
 
 /**
- * expand_alias - expans aliases
- * @data: a pointer to a struct of the program's data
- *
+ * expand_alias - expands aliases
+ * @data: a pointer to a struct containing the program's data
  * Return: nothing, but sets errno.
  */
 void expand_alias(data_of_program *data)
 {
 	int i, j, was_expanded = 0;
 	char line[BUFFER_SIZE] = {0}, expansion[BUFFER_SIZE] = {'\0'}, *temp;
-
 	if (data->input_line == NULL)
 		return;
-
 	buffer_add(line, data->input_line);
 
 	for (i = 0; line[i]; i++)
@@ -93,15 +88,14 @@ void expand_alias(data_of_program *data)
 }
 
 /**
- * buffer_add - append string at end of the buffer
- * @buffer: buffer to be filled
- * @str_to_add: string to be copied in the buffer
+ * buffer_add - appends a string to the end of the buffer
+ * @buffer: the buffer to be filled
+ * @str_to_add: the string to be copied into the buffer
  * Return: nothing, but sets errno.
  */
 int buffer_add(char *buffer, char *str_to_add)
 {
 	int length, i;
-
 	length = str_length(buffer);
 	for (i = 0; str_to_add[i]; i++)
 	{
