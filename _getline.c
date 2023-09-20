@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
-* _getline - read one line from the prompt.
-* @data: struct for the program's data
+* _getline - read a line
+* @data: struct for program data
 *
-* Return: reading counting bytes.
+* Return: counting bytes.
 */
 int _getline(data_of_program *data)
 {
