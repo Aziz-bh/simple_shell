@@ -2,12 +2,13 @@
 
 /**
  * long_to_string - converts a number to a string.
- * @number: number to be converten in an string.
- * @string: buffer to save the number as string.
- * @base: base to convert number
+ * @number: the number to be converted into a string.
+ * @string: the buffer to store the number as a string.
+ * @base: the base for converting the number.
  *
- * Return: Nothing.
+ * Return: void.
  */
+
 void long_to_string(long number, char *string, int base)
 {
 	int index = 0, inNegative = 0;
@@ -37,10 +38,9 @@ void long_to_string(long number, char *string, int base)
 
 
 /**
- * _atoi - convert a string to an integer.
- *
- * @s: pointer to str origen.
- * Return: int of string or 0.
+ * _atoi - converts a string to an integer.
+ * @s: pointer to the source string.
+ * Return: integer value of the string or 0.
  */
 int _atoi(char *s)
 {
@@ -67,11 +67,11 @@ int _atoi(char *s)
 }
 
 /**
- * count_characters - count the coincidences of character in string.
+ * count_characters - counts the occurrences of a character in a string.
  *
- * @string: pointer to str origen.
- * @character: string with  chars to be counted
- * Return: int of string or 0.
+ * @string: pointer to the source string.
+ * @character: string with characters to be counted.
+ * Return: integer representing the count or 0.
  */
 int count_characters(char *string, char *character)
 {
